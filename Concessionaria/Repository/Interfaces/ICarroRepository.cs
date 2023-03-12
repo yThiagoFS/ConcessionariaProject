@@ -6,9 +6,13 @@ namespace Concessionaria.Repository.Interfaces
     public interface ICarroRepository
     {
 
-        CarroDto PegarCarro(long id);
+        Carro PegarCarro(long id);
 
         bool InserirCarro(CarroDto carro);
+
+        List<CarroDto>? PegarTodosOsCarros();
+
+        bool DeletarCarro(long id);
 
     }
 }

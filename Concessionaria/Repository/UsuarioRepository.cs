@@ -23,7 +23,8 @@ namespace Concessionaria.Repository
             {
                 return _context.Usuarios.FirstOrDefault(p => p.Id == id);
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 throw new Exception($"{ex.Message}");
             }
@@ -65,7 +66,8 @@ namespace Concessionaria.Repository
 
                     _context.SaveChanges();
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 throw new Exception($"{ex.Message}");
             }

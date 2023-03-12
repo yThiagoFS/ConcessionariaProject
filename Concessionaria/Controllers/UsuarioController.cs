@@ -46,7 +46,7 @@ namespace Concessionaria.Controllers
                 : BadRequest();
         }
 
-        [HttpDelete("/deletar/{id}")]
+        [HttpDelete("/deletarUsuario/{id}")]
         public ActionResult DeletarUsuario(long id)
         {
             var deletar = _repository.DeletarUsuario(id);

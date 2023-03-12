@@ -2,6 +2,7 @@
 using Concessionaria.Models.DTOs;
 using Concessionaria.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Concessionaria.Controllers
 {
@@ -19,12 +20,12 @@ namespace Concessionaria.Controllers
         [HttpGet("/{id}")]
         public ActionResult VerMarca(long id) 
         {
-            var marca = _marcaRepository.PegarMarca(id);
+            var marca = JsonConvert.SerializeObject(_marcaRepository.PegarMarca(id));
 
             return Ok(marca);
         }
 
-        [HttpPost("/inserir")]
+        [HttpPost("/inserirMarca")]
         public ActionResult InserirMarca(MarcaDto marca)
         {
             _marcaRepository.InserirMarca(marca);

@@ -2,8 +2,8 @@ using AutoMapper;
 using Concessionaria.Contexts;
 using Concessionaria.Repository;
 using Concessionaria.Repository.Interfaces;
-using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,14 +17,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ConcessionariaContext>(opts => 
     opts.UseSqlServer(builder.Configuration.GetConnectionString("ConcessionariaConnection")));
 
-builder.Services.Configure<JsonOptions>(opts => opts.SerializerOptions.DefaultIgnoreCondition 
-    = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull);
-
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddTransient<IMarcaRepository, MarcaRepository>();
 builder.Services.AddTransient<ICarroRepository, CarroRepository>();
+
+builder.Services.Configure<JsonSerializerSettings>(x => { 
+    x.NullValueHandling = NullValueHandling.Ignore;
+    x.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+});
 
 var app = builder.Build();
 

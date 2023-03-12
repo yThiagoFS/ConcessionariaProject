@@ -1,4 +1,6 @@
-﻿namespace Concessionaria.Models
+﻿using Newtonsoft.Json;
+
+namespace Concessionaria.Models
 {
     public class Carro
     {
@@ -16,6 +18,9 @@
 
         public long MarcaId { get; set; }
 
-        public Marca? Marca { get; set; }
+        [JsonIgnore]
+        public Marca Marca { get; set; }
+
+        public string NomeMarca => Marca.Nome; 
     }
 }

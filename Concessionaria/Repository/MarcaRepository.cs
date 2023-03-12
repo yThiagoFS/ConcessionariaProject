@@ -22,14 +22,6 @@ namespace Concessionaria.Repository
         {
             var marca = _context.Marcas.Include(c => c.Carros).FirstOrDefault(m => m.MarcaId == id);
 
-            if(marca?.Carros != null)
-            {
-                foreach(Carro c in marca.Carros)
-                {
-                    c.Marca = null;
-                }
-            }
-
             return marca!;
         }
 

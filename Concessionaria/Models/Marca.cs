@@ -1,4 +1,6 @@
-﻿namespace Concessionaria.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Concessionaria.Models
 {
     public class Marca
     {

@@ -12,6 +12,6 @@
 
         public Categoria Categoria { get; set; }
 
-        public long MarcaId { get; set; }
+        public string NomeMarca { get; set; }
     }
 }

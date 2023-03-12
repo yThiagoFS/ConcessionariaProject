@@ -21,6 +21,7 @@ namespace Concessionaria.Mapper
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.Marca, opt => opt.Ignore())
                 .ReverseMap();
+
         }
     }
 }
